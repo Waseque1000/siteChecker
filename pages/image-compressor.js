@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SEO from "../components/SEO";
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Image as ImageIcon, UploadCloud, Download, RefreshCw } from "lucide-react";
@@ -67,9 +67,7 @@ export default function ImageCompressor() {
 
   return (
     <>
-      <Head>
-        <title>Image Compressor | DevSphere</title>
-      </Head>
+      <SEO title="Image Compressor | DevSphere" description="Compress JPG, PNG, and WebP images instantly in your browser. Save bandwidth without losing quality." />
       
       <motion.div
         initial={{ opacity: 0, y: 10 }}

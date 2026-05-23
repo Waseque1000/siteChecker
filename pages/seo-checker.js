@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SEO from "../components/SEO";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Activity, Globe, Code2, AlertCircle, CheckCircle2, Search, XCircle } from "lucide-react";
@@ -120,9 +120,7 @@ export default function SeoChecker() {
 
   return (
     <>
-      <Head>
-        <title>SEO Checker | DevSphere</title>
-      </Head>
+      <SEO title="SEO Checker | DevSphere" description="Instantly audit any webpage for on-page SEO best practices. Check title lengths, meta descriptions, and alt tags." />
       
       <motion.div
         initial={{ opacity: 0, y: 10 }}

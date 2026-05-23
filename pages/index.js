@@ -1,6 +1,6 @@
-import Head from "next/head";
+import SEO from "../components/SEO";
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Image as ImageIcon, Palette, QrCode, Sparkles, Activity, History, HardDrive, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Code, Image as ImageIcon, Palette, QrCode, Sparkles, Activity, History, HardDrive, CheckCircle2, Check } from "lucide-react";
 import Link from "next/link";
 import {
   AreaChart,
@@ -32,9 +32,7 @@ const quickTools = [
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Dashboard | DevSphere</title>
-      </Head>
+      <SEO title="Dashboard | DevSphere" description="DevSphere provides essential tools to build, debug, and ship faster." />
 
       <div className="flex flex-col gap-10 pb-10">
         {/* Colorful Hero Section */}
@@ -239,6 +237,82 @@ export default function Home() {
           </motion.div>
 
         </div>
+
+        {/* Subscription / Pricing Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
+          className="mt-10 flex flex-col gap-8"
+        >
+          <div className="text-center max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-slate-900 tracking-tight mb-4">Choose Your Workspace</h2>
+            <p className="text-slate-500 text-lg">Whether you're a solo dev or a scaling team, we have a plan designed to accelerate your workflow.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Free Tier */}
+            <div className="glass-panel rounded-3xl p-8 bg-white/60 flex flex-col relative overflow-hidden border border-slate-200 hover:border-indigo-200 transition-all">
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Free</h3>
+              <p className="text-sm text-slate-500 font-medium mb-6">Perfect for quick, everyday edits.</p>
+              <div className="mb-6">
+                <span className="text-4xl font-black text-slate-900">$0</span>
+                <span className="text-slate-500 font-medium">/month</span>
+              </div>
+              <ul className="flex flex-col gap-4 mb-8 flex-1">
+                {["Local processing only", "Basic JSON formatting", "Standard image compression", "Community support"].map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm font-medium text-slate-600">
+                    <Check size={18} className="text-indigo-400 shrink-0 mt-0.5" /> {feature}
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full py-3 rounded-xl font-bold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors">Current Plan</button>
+            </div>
+
+            {/* Advanced Tier */}
+            <div className="glass-panel rounded-3xl p-8 bg-white flex flex-col relative overflow-hidden border-2 border-indigo-500 shadow-2xl shadow-indigo-200/50 transform md:-translate-y-4">
+              <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-indigo-500 to-pink-500" />
+              <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-indigo-400 to-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 pointer-events-none" />
+              
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 text-xs font-bold mb-4 w-fit border border-indigo-100">
+                <Sparkles size={12} /> Most Popular
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Advanced</h3>
+              <p className="text-sm text-slate-500 font-medium mb-6">For power users who need deep analysis.</p>
+              <div className="mb-6">
+                <span className="text-4xl font-black text-slate-900">$12</span>
+                <span className="text-slate-500 font-medium">/month</span>
+              </div>
+              <ul className="flex flex-col gap-4 mb-8 flex-1">
+                {["Cloud snippet syncing", "Advanced SEO crawling", "Batch image compression", "API Access (10k req/mo)", "Priority email support"].map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm font-bold text-slate-700">
+                    <Check size={18} className="text-indigo-600 shrink-0 mt-0.5" /> {feature}
+                  </li>
+                ))}
+              </ul>
+              <button className="btn-primary w-full py-3 rounded-xl font-bold flex items-center justify-center gap-2">Upgrade to Advanced <ArrowRight size={16} /></button>
+            </div>
+
+            {/* Pro Tier */}
+            <div className="glass-panel rounded-3xl p-8 bg-white/60 flex flex-col relative overflow-hidden border border-slate-200 hover:border-purple-200 transition-all">
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Pro</h3>
+              <p className="text-sm text-slate-500 font-medium mb-6">Enterprise-grade tools for scaling teams.</p>
+              <div className="mb-6">
+                <span className="text-4xl font-black text-slate-900">$29</span>
+                <span className="text-slate-500 font-medium">/month</span>
+              </div>
+              <ul className="flex flex-col gap-4 mb-8 flex-1">
+                {["Everything in Advanced", "Unlimited API Access", "Team workspaces (up to 5)", "Custom branding", "24/7 dedicated support"].map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm font-medium text-slate-600">
+                    <Check size={18} className="text-purple-500 shrink-0 mt-0.5" /> {feature}
+                  </li>
+                ))}
+              </ul>
+              <button className="w-full py-3 rounded-xl font-bold bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 hover:text-slate-900 transition-colors shadow-sm">Contact Sales</button>
+            </div>
+          </div>
+        </motion.div>
+
       </div>
     </>
   );

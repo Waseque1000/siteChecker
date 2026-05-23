@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SEO from "../components/SEO";
 import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { QrCode, Download, Link2, Wifi, Type } from "lucide-react";
@@ -23,9 +23,7 @@ export default function QrGenerator() {
 
   return (
     <>
-      <Head>
-        <title>QR Generator | DevSphere</title>
-      </Head>
+      <SEO title="QR Generator | DevSphere" description="Generate scannable, high-resolution QR codes for URLs and text. Customize colors and download instantly." />
       
       <motion.div
         initial={{ opacity: 0, y: 10 }}

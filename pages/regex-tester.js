@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SEO from "../components/SEO";
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { SearchCode, AlertCircle } from "lucide-react";
@@ -67,9 +67,7 @@ export default function RegexTester() {
 
   return (
     <>
-      <Head>
-        <title>Regex Tester | DevSphere</title>
-      </Head>
+      <SEO title="Regex Tester | DevSphere" description="Write, test, and debug Regular Expressions in real-time with instant match highlighting." />
       
       <motion.div
         initial={{ opacity: 0, y: 10 }}

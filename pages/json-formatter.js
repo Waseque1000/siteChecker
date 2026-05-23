@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SEO from "../components/SEO";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Copy, Download, Code, AlignLeft, Minimize2, Trash2 } from "lucide-react";
@@ -57,9 +57,7 @@ export default function JsonFormatter() {
 
   return (
     <>
-      <Head>
-        <title>JSON Formatter | DevSphere</title>
-      </Head>
+      <SEO title="JSON Formatter | DevSphere" description="Format, beautify, and validate your raw JSON payloads instantly directly in your browser with DevSphere." />
       
       <motion.div
         initial={{ opacity: 0, y: 10 }}

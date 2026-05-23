@@ -1,4 +1,4 @@
-import Head from "next/head";
+import SEO from "../components/SEO";
 import { motion } from "framer-motion";
 import { BookOpen, Code, Image as ImageIcon, Palette, QrCode, Tags, SearchCode, Activity } from "lucide-react";
 
@@ -64,9 +64,7 @@ const docSections = [
 export default function Documentation() {
   return (
     <>
-      <Head>
-        <title>Documentation | DevSphere</title>
-      </Head>
+      <SEO title="Documentation | DevSphere" description="DevSphere provides essential tools to build, debug, and ship faster." />
       
       <motion.div
         initial={{ opacity: 0, y: 10 }}
