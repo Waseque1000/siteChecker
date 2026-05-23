@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
-import { ArrowRight, Code, Image as ImageIcon, Palette, QrCode, Sparkles, Activity } from "lucide-react";
+import { ArrowRight, Code, Image as ImageIcon, Palette, QrCode, Sparkles, Activity, History, HardDrive, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import {
   AreaChart,
@@ -144,6 +144,100 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
+        </div>
+
+        {/* New Sections: Activity & System Health */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-4">
+          
+          {/* Recent Activity Feed */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+            className="flex flex-col gap-5"
+          >
+            <h2 className="text-xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
+               <History className="text-indigo-500" size={20} /> Recent Activity
+            </h2>
+            <div className="glass-panel rounded-2xl p-6 h-full flex flex-col bg-white/80">
+              <div className="space-y-6">
+                {[
+                  { title: "Analyzed SEO for https://example.com", time: "2 minutes ago", icon: Activity, color: "text-blue-500", bg: "bg-blue-50" },
+                  { title: "Compressed 'hero-banner.png' (Saved 45%)", time: "1 hour ago", icon: ImageIcon, color: "text-purple-500", bg: "bg-purple-50" },
+                  { title: "Formatted 12kb JSON payload", time: "3 hours ago", icon: Code, color: "text-indigo-500", bg: "bg-indigo-50" },
+                  { title: "Generated Glassmorphism CSS", time: "Yesterday", icon: Palette, color: "text-orange-500", bg: "bg-orange-50" },
+                ].map((item, i) => {
+                  const Icon = item.icon;
+                  return (
+                    <div key={i} className="flex items-start gap-4">
+                      <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${item.bg}`}>
+                        <Icon size={18} className={item.color} />
+                      </div>
+                      <div className="flex-1 min-w-0 pt-1">
+                        <p className="text-sm font-bold text-slate-800 truncate">{item.title}</p>
+                        <p className="text-xs font-medium text-slate-500 mt-0.5">{item.time}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </motion.div>
+
+          {/* System Health / Storage */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4, ease: "easeOut" }}
+            className="flex flex-col gap-5"
+          >
+            <h2 className="text-xl font-bold text-slate-800 tracking-tight flex items-center gap-2">
+               <HardDrive className="text-indigo-500" size={20} /> System Health
+            </h2>
+            <div className="glass-panel rounded-2xl p-6 h-full flex flex-col bg-white/80">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-200/50 text-white">
+                  <CheckCircle2 size={32} />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-800">All Systems Operational</h3>
+                  <p className="text-sm text-emerald-600 font-semibold">Running 100% Locally</p>
+                </div>
+              </div>
+              
+              <div className="space-y-6">
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-bold text-slate-700">Local Storage Used</span>
+                    <span className="text-sm font-bold text-slate-500">12 MB / 50 MB</span>
+                  </div>
+                  <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                    <div className="bg-gradient-to-r from-indigo-500 to-pink-500 h-2.5 rounded-full" style={{ width: '24%' }}></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between items-center mb-2">
+                    <span className="text-sm font-bold text-slate-700">Web Worker Memory</span>
+                    <span className="text-sm font-bold text-slate-500">Normal</span>
+                  </div>
+                  <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                    <div className="bg-emerald-400 h-2.5 rounded-full" style={{ width: '15%' }}></div>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="mt-auto pt-6">
+                <div className="p-4 rounded-xl bg-indigo-50 border border-indigo-100 flex gap-3">
+                  <Sparkles className="text-indigo-500 shrink-0 mt-0.5" size={18} />
+                  <p className="text-sm font-medium text-indigo-800">
+                    <strong>Pro tip:</strong> DevSphere relies heavily on IndexedDB to store your history locally, keeping your sensitive data entirely off our servers.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </>

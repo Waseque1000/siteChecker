@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { motion } from "framer-motion";
-import { BookOpen, Code, Image as ImageIcon, Palette, QrCode, Tags, SearchCode } from "lucide-react";
+import { BookOpen, Code, Image as ImageIcon, Palette, QrCode, Tags, SearchCode, Activity } from "lucide-react";
 
 const docSections = [
   {
@@ -9,6 +9,13 @@ const docSections = [
     icon: BookOpen,
     content: "DevSphere is an all-in-one, privacy-first developer utility hub. All tools run completely locally in your browser, meaning your sensitive JSON data, images, and strings are never sent to a server. Navigate through the sidebar to access individual tools.",
     image: null
+  },
+  {
+    id: "seo-checker",
+    title: "SEO Checker",
+    icon: Activity,
+    content: "Instantly audit any webpage for on-page SEO best practices. Enter a live URL to have DevSphere automatically fetch it, or paste raw HTML directly if you're working locally. The tool generates an overall SEO score (0-100) and provides actionable checklists covering Title lengths, Meta Descriptions, H1 Headings, missing Image Alt Attributes, and broken links.",
+    image: "/images/seo_checker_ui_1779549426906.png"
   },
   {
     id: "json-formatter",
